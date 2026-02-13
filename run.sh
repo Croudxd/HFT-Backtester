@@ -31,13 +31,12 @@ pkill -f "release/bitfinex" || true
 
 trap 'kill $(jobs -p)' EXIT
 
-echo "Starting Engine..."
-nohup ./order-book/build/engine > logs/engine.log 2>&1 &
+nohup ./order-book/build/order-book > logs/engine.log 2>&1 &
 sleep 0.5
 
 if [ -f "./bitfinex/target/release/bitfinex" ]; then
     echo "Starting Gateway..."
-    nohup ./bitfinex/target/release/bitfinex > logs/gateway.log 2>&1 &
+    nohup cargo run > logs/gateway.log 2>&1 &
     sleep 0.5
 fi
 
