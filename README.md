@@ -27,7 +27,7 @@ graph LR
     B -- Report IPC --> C
     C -- Dashboard IPC --> D[Viewer UI]
 
-
+```
 ### To run
 
 ```bash
